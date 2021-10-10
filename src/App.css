@@ -1,0 +1,61 @@
+.app-container {
+  background-color: #f6d8ae;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Andada Pro', serif;
+  color: #2e4057;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-text {
+  margin-top: 10%;
+  font-size: 50px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.leaderboard-text {
+  font-size: 30px;
+  margin: 5px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leaderboard-text-container {
+  margin-bottom: 30px;
+}
+
+.button {
+  font-weight: 700;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.submission-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-label {
+  margin: 10px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.player-drop-down {
+  width: 100px;
+}
+
+.none-option {
+  display: none;
+}
