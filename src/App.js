@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import _ from 'lodash'
 
-const LEADERBOARD_SHEET_URL = 'https://sheet.best/api/sheets/c8a33913-934c-4263-8019-447ac2a6777f';
+const LEADERBOARD_SHEET_URL = 'https://sheet.best/api/sheets/d784358c-2285-407f-b404-18f70b9a79c3';
 
 class App extends React.Component{
 
@@ -20,7 +20,7 @@ class App extends React.Component{
   }
 
   async componentDidMount() {
-    const leaderboard = (await this.getPingPongLeaderboard()).sort((row1, row2) => row2['Elo'] - row1['Elo'])
+    const leaderboard = await this.getPingPongLeaderboard();
     // const leaderboard = [
     //   {
     //     'Player Name': 'Andrew',
@@ -53,7 +53,7 @@ class App extends React.Component{
 
   getPingPongLeaderboard() {
     return axios.get(LEADERBOARD_SHEET_URL)
-    .then(response => response.data);
+    .then(response => response.data.sort((row1, row2) => row2['Elo'] - row1['Elo']));
   }
 
   renderSubmitOptions(nameToDisable) {
@@ -89,7 +89,7 @@ class App extends React.Component{
   
       await Promise.all([axios.patch(`${LEADERBOARD_SHEET_URL}/${loserRow.id}`, { Elo: loserNewElo }), axios.patch(`${LEADERBOARD_SHEET_URL}/${winnerRow.id}`, { Elo: winnerNewElo })])
   
-      this.setState({ isSubmitting: false, leaderboard: await this.getPingPongLeaderboard(), isLoading: false });
+      this.setState({ isSubmitting: false, leaderboard: await this.getPingPongLeaderboard(), selectedWinner: '', selectedLoser: '', isLoading: false });
     })
   }
 
