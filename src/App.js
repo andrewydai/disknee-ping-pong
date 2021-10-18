@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import _ from 'lodash'
 
-const LEADERBOARD_SHEET_URL = 'https://sheet.best/api/sheets/d784358c-2285-407f-b404-18f70b9a79c3';
+const LEADERBOARD_SHEET_URL = 'https://sheet.best/api/sheets/c8a33913-934c-4263-8019-447ac2a6777f';
 
 class App extends React.Component{
 
